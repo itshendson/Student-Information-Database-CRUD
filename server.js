@@ -8,10 +8,10 @@ app.post('/', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.send("Hello World")
+    res.sendFile(`${__dirname}/client/index.html`)
 })
 
-app.update('/', (req, res) => {
+app.put('/', (req, res) => {
     
 })
 
