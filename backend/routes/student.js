@@ -1,22 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/student', (req, res) => {
-    // if (!req.body) {
-    //     res.send({error: "You must provide student information."})
-    // }
+const StudentSchema = require('../models/Student.js');
 
-    // // Instantiate student object
-    // const student = new StudentDb({
-    //     name: req.body.name,
-    //     major: req.body.major,
-    //     gpa: req.body.gpa,
-    //     id: req.body.id
-    // })
+router.post('/student', (req, res) => {
+    if (!req.body) {
+        res.send({error: "You must provide student information."})
+    }
+
+    // Instantiate student object
+    const studentDocument = new StudentSchema({
+        name: req.body.name,
+        major: req.body.major,
+        gpa: req.body.gpa,
+        id: req.body.id
+    })
 
     // Save student to database
-    res.status(200).send(req.body);
-    console.log(req.body);
+    try {
+        const responseStudent = studentDocument.save();
+        res.status(200).send(req.body);
+    } catch (err) {
+        res.send({error: "Encountered a problem while saving to database."})
+    }
 })
 
 router.put('/', (req, res) => {
