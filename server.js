@@ -26,12 +26,8 @@ connectDatabase();
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/client/index.html`)
 })
-// app.use('/api/v1', require('./backend/routes/student.js'));
 
-app.use('/api/v1', (req, res) => {
-    res.status(200).send(req.body);
-    console.log(req.body);
-})
+app.use('/api/v1', require('./backend/routes/student.js'))
 
 
 
