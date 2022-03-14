@@ -1,4 +1,5 @@
 const express = require('express');
+const { find } = require('../models/Student.js');
 const router = express.Router();
 
 const StudentSchema = require('../models/Student.js');
@@ -18,11 +19,19 @@ router.post('/student', (req, res) => {
 
     // Save student to database
     try {
-        const responseStudent = studentDocument.save();
-        res.status(200).send(req.body);
+        studentDocument.save();
+        // res.status(200).send(req.body);
+        res.status(200).redirect('/');
     } catch (err) {
         res.send({error: "Encountered a problem while saving to database."})
     }
+})
+
+router.get('/student', (req, res) => {
+    StudentSchema.find()
+        .then(results => {
+            console.log(results);
+        })
 })
 
 router.put('/', (req, res) => {
