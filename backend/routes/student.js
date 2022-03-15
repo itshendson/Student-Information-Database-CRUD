@@ -20,6 +20,10 @@ router.post('/api/v1/student', (req, res) => {
         id: req.body.id
     })
 
+    if (StudentSchema.find({id: studentDocument.id})) {
+        res.send({error: "Student already exists in database!"})
+    }
+
     // Save student to database
     try {
         studentDocument.save();
