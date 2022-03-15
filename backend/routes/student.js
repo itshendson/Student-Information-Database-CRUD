@@ -20,17 +20,19 @@ router.post('/api/v1/student', (req, res) => {
         id: req.body.id
     })
 
-    if (StudentSchema.find({id: studentDocument.id})) {
-        res.send({error: "Student already exists in database!"})
-    }
-
-    // Save student to database
-    try {
-        studentDocument.save();
-        res.status(200).redirect('/');
-    } catch(err) {
-        res.send({error: "Encountered a problem while saving to database."})
-    }
+    StudentSchema.findOne({id: studentDocument.id}, (err, student) => {
+        // Create student if it doesn't exist in database already
+        if (!student) {
+            try {
+                studentDocument.save();
+                res.status(200).redirect('/');
+            } catch(err) {
+                res.send({error: "Encountered a problem while saving to database."})
+            }
+        } else {
+            res.send({error: "Student already exists in database."})
+        }
+    })
 })
 
 /**
