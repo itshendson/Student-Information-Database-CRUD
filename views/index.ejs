@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERN CRUD Practice</title>
+    <!-- <script src="index.js"></script> -->
+</head>
+<body>
+    <h1>Student Database</h1>
+    <h4>Enter Student Information</h4>
+    <form action="/api/v1/student" method="POST">
+        <input type="text" placeholder="Full Name" name="name"></br>
+        <input type="text" placeholder="Major" name="major"></br>
+        <input type="text" placeholder="GPA" name="gpa"></br>
+        <input type="number" placeholder="Student ID" name="id"></br>
+        <button type="submit">Submit</button>
+    </form>
+    <h4>Database Results</h4>
+    <ul class="student-container">
+        <% for(var i = 0; i < students.length; i++) {%>
+          <li class="student">
+            STUDENT ID: <span><%= students[i].id %></span>, 
+            NAME: <span><%= students[i].name %></span>, 
+            MAJOR: <span><%= students[i].major %></span>, 
+            GPA: <span><%= students[i].gpa %></span> 
+          </li>
+        <% } %>
+      </ul>
+</body>
+</html>

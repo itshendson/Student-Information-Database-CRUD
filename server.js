@@ -24,11 +24,7 @@ connectDatabase();
 /**
  * ---------------- ROUTES ----------------
  */
-app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/client/index.html`)
-})
-
-app.use('/api/v1', require('./backend/routes/student.js'))
+app.use('/', require('./backend/routes/student.js'))
 
 
 

@@ -4,7 +4,10 @@ const router = express.Router();
 
 const StudentSchema = require('../models/Student.js');
 
-router.post('/student', (req, res) => {
+/**
+ * POST request for Endpoint /api/v1/student
+ */
+router.post('/api/v1/student', (req, res) => {
     if (!req.body) {
         res.send({error: "You must provide student information."})
     }
@@ -20,18 +23,24 @@ router.post('/student', (req, res) => {
     // Save student to database
     try {
         studentDocument.save();
-        // res.status(200).send(req.body);
         res.status(200).redirect('/');
-    } catch (err) {
+    } catch(err) {
         res.send({error: "Encountered a problem while saving to database."})
     }
 })
 
-router.get('/student', (req, res) => {
+/**
+ * GET request for Endpoint /api/v1/student
+ */
+router.get('/', (req, res) => {
+    try {
     StudentSchema.find()
-        .then(results => {
-            console.log(results);
+        .then(data => {
+            res.render('index.ejs', { students: data });
         })
+    } catch(err) {
+        res.send({error: "Encountered a problem while retrieving data."})
+    }
 })
 
 router.put('/', (req, res) => {
