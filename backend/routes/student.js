@@ -40,17 +40,30 @@ router.post('/api/v1/student', (req, res) => {
  */
 router.get('/', (req, res) => {
     try {
-    StudentSchema.find()
-        .then(data => {
-            res.render('index.ejs', { students: data });
-        })
+        StudentSchema.find()
+            .then(data => {
+                res.render('index.ejs', { students: data });
+            })
     } catch(err) {
         res.send({error: "Encountered a problem while retrieving data."})
     }
 })
 
-router.put('/', (req, res) => {
-    
+/**
+ * PUT request for Endpoint /api/v1/student
+ */
+router.put('/api/v1/student', (req, res) => {
+    try {
+        StudentSchema.findOneAndUpdate(
+            { id: req.body.id },
+            { major: req.body.major }
+        )
+            .then(result => {
+                res.json('Success');
+            })
+    } catch(err) {
+        res.send({error: "Encountered a problem while updating student."})
+    }
 })
 
 router.delete('/', (req, res) => {
