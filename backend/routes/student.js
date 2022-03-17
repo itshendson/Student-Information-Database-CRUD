@@ -66,8 +66,20 @@ router.put('/api/v1/student', (req, res) => {
     }
 })
 
-router.delete('/', (req, res) => {
-    
+router.delete('/api/v1/student', (req, res) => {
+    try {
+        StudentSchema.deleteOne(
+            { id: req.body.id }
+        )
+            .then(result => {
+                if (result.deletedCount === 0) {
+                    return res.json('No student record to delete.')
+                }
+                res.json(`Deleted Student ${req.body.id}.`);
+            })
+    } catch(err) {
+        res.send({error: "Encountered a problem while deleting student."})
+    }
 })
 
 module.exports = router;
