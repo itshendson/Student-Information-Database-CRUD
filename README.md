@@ -6,5 +6,6 @@
 ### Still Need To:
 - Make app pretty
 - add in error handlers
-- move POST request to main.js (done)
-- add app architecture (done)
+- Fill in README.md
+~~- move POST request to main.js~~
+~~- add app architecture (done)~~
