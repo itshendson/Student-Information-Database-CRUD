@@ -7,5 +7,5 @@
 - Make app pretty
 - add in error handlers
 - Fill in README.md
-~~- move POST request to main.js~~
-~~- add app architecture (done)~~
+- ~~move POST request to main.js~~
+- ~~add app architecture (done)~~
