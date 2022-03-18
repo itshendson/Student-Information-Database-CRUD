@@ -10,13 +10,22 @@
 <body>
     <h1>Student Database</h1>
 
-    <h4>Enter Student Information</h4>
+    <!-- <h4>Enter Student Information</h4>
     <form action="/api/v1/student" method="POST">
         <input type="text" placeholder="Full Name" name="name"></br>
         <input type="text" placeholder="Major" name="major"></br>
         <input type="text" placeholder="GPA" name="gpa"></br>
         <input type="number" placeholder="Student ID" name="id"></br>
         <button type="submit">Submit</button>
+    </form> -->
+
+    <h4>Enter Student Information</h4>
+    <form>
+        <input id="post-name" type="text" placeholder="Full Name" name="name"></br>
+        <input id="post-major" type="text" placeholder="Major" name="major"></br>
+        <input id="post-gpa" type="text" placeholder="GPA" name="gpa"></br>
+        <input id="post-id" type="number" placeholder="Student ID" name="id"></br>
+        <button id="post-button" type="submit">Submit</button>
     </form>
 
     <h4>Change Major</h4>

@@ -1,5 +1,4 @@
 const express = require('express');
-const { find } = require('../models/Student.js');
 const router = express.Router();
 
 const StudentSchema = require('../models/Student.js');
@@ -24,8 +23,10 @@ router.post('/api/v1/student', (req, res) => {
         // Create student if it doesn't exist in database already
         if (!student) {
             try {
-                studentDocument.save();
-                res.status(200).redirect('/');
+                studentDocument.save()
+                    .then(result => {
+                        res.status(200).json('POST successful');
+                    })
             } catch(err) {
                 res.send({error: "Encountered a problem while saving to database."})
             }
