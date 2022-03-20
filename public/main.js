@@ -26,6 +26,7 @@ postButton.addEventListener('click', ()=> {
     fetch('/api/v1/student', options)
         .then(res => {
             if (res.ok) return res.json();
+            window.location.reload(true);
         })
         .then(response => {
             window.location.reload(true);
@@ -52,6 +53,7 @@ updateButton.addEventListener('click', () => {
     fetch('/api/v1/student', options)
         .then(res => {
             if (res.ok) return res.json();
+            window.location.reload(true);
         })
         .then(response => {
             window.location.reload(true);

@@ -1,0 +1,26 @@
+body {
+    background-color: #ebecf0;
+}
+
+#header-container {
+    display: flex;
+    justify-content: center;
+}
+
+#control-panel-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.container {
+    background-color:#e7e7e7;
+    border-radius: 20px;
+    -webkit-box-shadow:5px 1px 10px 5px rgba(0,0,0,0.12); 
+    box-shadow:5px 1px 10px 5px rgba(0,0,0,0.12);
+    display:inline-block;
+    margin:5px 10px;
+    min-height:222px;
+    padding:8px;
+    min-width: 250px;
+}
