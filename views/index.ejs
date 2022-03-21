@@ -54,7 +54,7 @@
       </div>
     </div>
     
-    <div id="result-div">
+    <!-- <div id="result-div">
       <h4>Database Results</h4>
       <ul class="student-container">
         <% for(var i = 0; i < students.length; i++) {%>
@@ -66,6 +66,17 @@
           </li>
         <% } %>
       </ul>
+    </div> -->
+
+    <div id="result-container">
+        <% for(var i = 0; i < students.length; i++) {%>
+          <div class="student">  
+            <div class="result-line">STUDENT ID:</div> <%= students[i].id %></br>
+            <div class="result-line">NAME:</div> <%= students[i].name %></br>
+            <div class="result-line">MAJOR:</div> <%= students[i].major %></br>
+            <div class="result-line">GPA:</div> <%= students[i].gpa %></br> 
+          </div>
+        <% } %>
     </div>
 </body>
 </html>
