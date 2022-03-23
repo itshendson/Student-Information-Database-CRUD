@@ -6,7 +6,7 @@ This project is a straightforward CRUD application. The user can enter student i
 ## System Design
 
 ## Still Need To:
-- Make app pretty
+- ~~Make app pretty~~
 - add in error handlers
 - Fill in README.md
 - ~~move POST request to main.js~~
