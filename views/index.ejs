@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MERN CRUD Practice</title>
+    <title>Student Information Database</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="/main.js"></script>
 </head>
@@ -23,12 +23,14 @@
     </form> -->
 
     <div id="control-panel-container">
+
       <div id="change-major-div" class="container">
         <h4>Change Major</h4>
         <form>
           <input id="search-student-id" type=""number" maxlength="7" placeholder="Enter Student ID"></br>
           <input id="update-student-major" type=""number" placeholder="Enter New Student Major"></br>
           <button id="update-button" type="submit">Submit</button>
+          <div id="update-message"></div>
         </form>
       </div>
 
@@ -40,6 +42,7 @@
             <input id="post-gpa" type="text" placeholder="GPA" name="gpa"></br>
             <input id="post-id" type="number" maxlength="7" placeholder="Student ID" name="id"></br>
             <button id="post-button" type="submit">Submit</button>
+            <div id="create-message"></div>
         </form>
       </div>
 
@@ -51,6 +54,7 @@
           <div id="delete-message"></div>
         </form>
       </div>
+      
     </div>
 
     <div id="result-container">
