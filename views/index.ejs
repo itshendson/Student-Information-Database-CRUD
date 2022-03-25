@@ -29,7 +29,7 @@
         <h4>Change Major</h4>
         <form>
           <input id="search-student-id" maxlength="7" autocomplete="off" placeholder="Enter Student ID"></br>
-          <input id="update-student-major" type=""number" placeholder="Enter New Student Major"></br>
+          <input id="update-student-major" type=""number" maxlength="30" placeholder="Enter New Student Major"></br>
           <button id="update-button" type="submit">Submit</button>
         </form>
       </div>
@@ -37,9 +37,9 @@
       <div id="new-student-div" class="container">
         <h4>Enter Student Information</h4>
         <form>
-            <input id="post-name" type="text" placeholder="Full Name" name="name"></br>
-            <input id="post-major" type="text" placeholder="Major" name="major"></br>
-            <input id="post-gpa" type="text" placeholder="GPA" name="gpa"></br>
+            <input id="post-name" type="text" maxlength="30"  placeholder="Full Name" name="name"></br>
+            <input id="post-major" type="text" maxlength="30"  placeholder="Major" name="major"></br>
+            <input id="post-gpa" type="text" maxlength="4"  placeholder="GPA" name="gpa"></br>
             <input id="post-id" maxlength="7" autocomplete="off" placeholder="Student ID" name="id"></br>
             <button id="post-button" type="submit">Submit</button>
         </form>
