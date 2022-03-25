@@ -64,7 +64,7 @@ updateButton.addEventListener('click', () => {
 /**
  * DELETE request to server
  */
-deleteButton.addEventListener('click', () => {
+deleteButton.addEventListener('click', async () => {
     event.preventDefault();
     const deleteStudentByID = document.getElementById('delete-student-by-id').value;
 
@@ -76,16 +76,11 @@ deleteButton.addEventListener('click', () => {
         })
     }
 
-    fetch('/api/v1/student', options)
-        .then(res => {
-            if (res.ok) return res.json();
-        })
-        .then(response => {
-            if (response === 'No student record to delete.') {
-                message.textContent = 'No student record to delete'
-            } else {
-                window.location.reload(true)
-            }
-        })
-        .catch('Encountered a problem while deleting student record')
+    const response = await fetch('/api/v1/student', options)
+    if (response.ok) {
+        window.location.reload(true)
+        return response.json();
+    } else {
+        message.textContent = 'No student record to delete'
+    }
 })

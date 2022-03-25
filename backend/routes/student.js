@@ -65,19 +65,16 @@ router.put('/api/v1/student', (req, res) => {
     }
 })
 
-router.delete('/api/v1/student', (req, res) => {
+router.delete('/api/v1/student', async (req, res) => {
     try {
-        StudentSchema.deleteOne(
-            { id: req.body.id }
-        )
-            .then(result => {
-                if (result.deletedCount === 0) {
-                    return res.json('No student record to delete.')
-                }
-                res.json(`Deleted Student ${req.body.id}.`);
-            })
+        const result = await StudentSchema.deleteOne({ id: req.body.id })
+        if (result.deletedCount === 0) {
+            res.status(404).json('No student record to delete.');
+        } else {
+            res.status(200).json(`Deleted Student ${req.body.id}.`);
+        }
     } catch(err) {
-        res.send({error: "Encountered a problem while deleting student."})
+        res.status(500).json(`Could not delete: ${err}`);
     }
 })
 
