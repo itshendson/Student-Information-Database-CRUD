@@ -1,12 +1,13 @@
 const updateButton = document.getElementById('update-button');
 const deleteButton = document.getElementById('delete-button');
 const postButton = document.getElementById('post-button');
-const message = document.getElementById('delete-message');
+const message = document.getElementById('message');
 
 /**
  * POST request done in index.ejs to practice making API calls in Form
  */
-postButton.addEventListener('click', ()=> {
+postButton.addEventListener('click', async ()=> {
+    event.preventDefault(); 
     const nameValue = document.getElementById('post-name').value;
     const majorValue = document.getElementById('post-major').value;
     const gpaValue = document.getElementById('post-gpa').value;
@@ -23,14 +24,13 @@ postButton.addEventListener('click', ()=> {
         })
     }
 
-    fetch('/api/v1/student', options)
-        .then(res => {
-            if (res.ok) return res.json();
-            window.location.reload(true);
-        })
-        .then(response => {
-            window.location.reload(true);
-        })
+    const response = await fetch('/api/v1/student', options);
+    const responseJson = await response.json();
+    if (response.status === 201) {
+        window.location.reload(true);
+    } else {
+        message.textContent = responseJson;
+    }
 })
 
 /**

@@ -8,7 +8,7 @@ const StudentSchema = require('../models/Student.js');
  */
 router.post('/api/v1/student', (req, res) => {
     if (!req.body) {
-        res.send({error: "You must provide student information."})
+        res.json('No student information entered.')
     }
 
     // Instantiate student object
@@ -19,19 +19,17 @@ router.post('/api/v1/student', (req, res) => {
         id: req.body.id
     })
 
-    StudentSchema.findOne({id: studentDocument.id}, (err, student) => {
+    StudentSchema.findOne({id: studentDocument.id}, async (err, student) => {
         // Create student if it doesn't exist in database already
         if (!student) {
             try {
-                studentDocument.save()
-                    .then(result => {
-                        res.status(200).json('POST successful');
-                    })
+                await studentDocument.save()
+                res.status(201).json('Student successfully created.');
             } catch(err) {
-                res.send({error: "Encountered a problem while saving to database."})
+                res.status(500).json(`Could not save student: ${err}`)
             }
         } else {
-            res.send({error: "Student already exists in database."})
+            res.status(409).json(`Student ID ${student.id} already exists in database.`)
         }
     })
 })
