@@ -36,7 +36,7 @@ postButton.addEventListener('click', async ()=> {
 /**
  * UPDATE request to server
  */
-updateButton.addEventListener('click', () => {
+updateButton.addEventListener('click', async () => {
     event.preventDefault();
     const searchStudentID = document.getElementById('search-student-id').value;
     const newStudentMajor = document.getElementById('update-student-major').value;
@@ -50,14 +50,11 @@ updateButton.addEventListener('click', () => {
         })
     }
 
-    fetch('/api/v1/student', options)
-        .then(res => {
-            if (res.ok) return res.json();
-            window.location.reload(true);
-        })
-        .then(response => {
-            window.location.reload(true);
-        })
+    const response = await fetch('/api/v1/student', options)
+    if (response.status === 200) {
+        window.location.reload(true);
+        return res.json();
+    }
 })
 
 

@@ -51,17 +51,15 @@ router.get('/', (req, res) => {
 /**
  * PUT request for Endpoint /api/v1/student
  */
-router.put('/api/v1/student', (req, res) => {
+router.put('/api/v1/student', async (req, res) => {
     try {
-        StudentSchema.findOneAndUpdate(
+        await StudentSchema.findOneAndUpdate(
             { id: req.body.id },
             { major: req.body.major }
         )
-            .then(result => {
-                res.json('Success');
-            })
+        res.status(200).json('Major updated.');
     } catch(err) {
-        res.send({error: "Encountered a problem while updating student."})
+        res.status(500).json('Encountered a problem while updating student');
     }
 })
 
