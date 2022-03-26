@@ -53,13 +53,17 @@ router.get('/', (req, res) => {
  */
 router.put('/api/v1/student', async (req, res) => {
     try {
-        await StudentSchema.findOneAndUpdate(
+        const result = await StudentSchema.findOneAndUpdate(
             { id: req.body.id },
             { major: req.body.major }
         )
-        res.status(200).json('Major updated.');
+        if (result === null) {
+            res.status(404).json(`Could not find student with matching student ID. Please ensure ID is correct.`);
+        } else {
+            res.status(200).json('Major updated.');
+        }
     } catch(err) {
-        res.status(500).json('Encountered a problem while updating student');
+        res.status(500).json(err);
     }
 })
 

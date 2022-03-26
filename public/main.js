@@ -51,9 +51,12 @@ updateButton.addEventListener('click', async () => {
     }
 
     const response = await fetch('/api/v1/student', options)
+    const responseJson = await response.json();
     if (response.status === 200) {
         window.location.reload(true);
-        return res.json();
+        return response.json();
+    } else {
+        message.textContent = responseJson;
     }
 })
 
