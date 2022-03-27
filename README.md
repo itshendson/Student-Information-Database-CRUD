@@ -22,7 +22,7 @@ Overall, this was a straightforward CRUD application. It touched upon the fronte
 - String input fields such as "major" should only accept letters (eg. accept "sociology" but reject "s0c10l0gy")
 - Make error message prettier
 - Convert JavaScript to TypeScript??
-- - ~~Make app pretty~~
+- ~~Make app pretty~~
 - ~~Add in error handlers~~
 - ~~Fill in README.md~~
 - ~~Convert promise/then to async/await~~
