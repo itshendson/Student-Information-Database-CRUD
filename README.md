@@ -1,4 +1,5 @@
 # Student Information Database (CRUD)
+[Link to Application](https://student-information-database.herokuapp.com/)
 
 ## Description
 Student Information Database is a straightforward CRUD application. The user can enter student information into the system such as a student's name and major. The student's data can be stored in a database and retrieved by the application.
