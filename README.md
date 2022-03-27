@@ -22,7 +22,7 @@ Overall, this was a straightforward CRUD application. It touched upon the fronte
 - ~~Convert promise/then to async/await~~
 - ~~Create route in main.js~~
 - ~~Add architecture drawing~~
-- Deploy application
+- Deploy application (in progress)
 - Refine error handling
 - GPA should not accept values greater than 4.33
 - String input fields such as "major" should only accept letters (eg. accept "sociology" but reject "s0c10l0gy")
