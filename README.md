@@ -20,7 +20,7 @@ Overall, this was a straightforward CRUD application. It touched upon the fronte
 - ~~Add in error handlers~~
 - ~~Fill in README.md~~
 - ~~Convert promise/then to async/await~~
-- ~~Move POST request to main.js~~
+- ~~Create route in main.js~~
 - ~~Add architecture drawing~~
 - Deploy application
 - Refine error handling
