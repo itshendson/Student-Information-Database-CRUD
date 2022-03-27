@@ -17,15 +17,15 @@ Users can submit student information, such as their name, major, GPA, and studen
 Overall, this was a straightforward CRUD application. It touched upon the frontend, backend, and the database. This project was more so for me to solidify and review concepts and topics that I've learned before. Although this project is functionally complete there is always more that can be done to improve it. I've provided a list of tasks below that I will periodically revisit to improve my project.
 
 ## Tasks:
-- ~~Make app pretty~~
+- Refine error handling
+- GPA should not accept values greater than 4.33
+- String input fields such as "major" should only accept letters (eg. accept "sociology" but reject "s0c10l0gy")
+- Make error message prettier
+- Convert JavaScript to TypeScript??
+- - ~~Make app pretty~~
 - ~~Add in error handlers~~
 - ~~Fill in README.md~~
 - ~~Convert promise/then to async/await~~
 - ~~Create route in main.js~~
 - ~~Add architecture drawing~~
 - ~~Deploy application~~
-- Refine error handling
-- GPA should not accept values greater than 4.33
-- String input fields such as "major" should only accept letters (eg. accept "sociology" but reject "s0c10l0gy")
-- Make error message prettier
-- Convert JavaScript to TypeScript??
