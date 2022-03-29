@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
                 res.render('index.ejs', { students: data });
             })
     } catch(err) {
-        res.send({error: "Encountered a problem while retrieving data."})
+        res.json('Encountered a problem while retrieving data.')
     }
 })
 
